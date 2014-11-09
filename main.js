@@ -1,25 +1,20 @@
-var url = //input data.gov url
+var url = "https://data.nashville.gov/api/views/j7nq-7ct5/rows.json";
 
-//JSONP function
-function get JSONP(url, cbName) {
-  var $script = $('<script></script>');
-  $script.atr('src', url + '?callback=' + cbName);
-}
 
 var output = $('#json');
 
-getJSON(url, 'filterJson');
+$.get(url, filterJSON)
 
-filterJson(data){
-  var filteredJSON = {};
-  data.meta.view.forEach(function(item){
-    var filterFormat = {
-      "city": 
-      "zip": 
-      "number":
-      "state":
-      "location":
-      "address": 
+function filterJSON(jsonResponse){
+  var filteredJSON = [];
+  jsonResponse.data.forEach(function(item){
+    var filterFormat = { 
+      "name": item[8], 
+      "zip":  item[12], 
+      "number": item[0],
+      "state": item[11],
+      //"location": 
+      "address": item[9]
     } 
     filteredJSON.push(filterFormat);
   })
