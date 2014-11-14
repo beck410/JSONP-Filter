@@ -18,6 +18,7 @@ function filterJSON(jsonResponse){
     } 
     filteredJSON.push(filterFormat);
   })
-  console.log(filteredJSON);
+  console.log(JSON.stringify(filteredJSON));
 }
+
 
